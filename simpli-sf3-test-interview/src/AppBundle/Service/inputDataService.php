@@ -13,10 +13,10 @@ class inputDataService{
 
     private $inputData;
 
-     public function __construct(Array $inputData)
+     public function __construct( $inputData )
     {
 
-        $this->$inputData= $container->getParameter('inputData');
+        $this->$inputData= $inputData;
 
     }
 
@@ -24,12 +24,14 @@ class inputDataService{
     {
         $resultat = $this->inputData;
 
-        foreach ($this->inputData as $inputData){
-            foreach ($inputData as $value){
+        foreach ($this->inputData as $clef=>$inputData){
 
-            }
+            $resultat[$clef][2]=$inputData[0]+$inputData[1]; //calcule la somme
+            $resultat[$clef][3]=($resultat[$clef][2]%2 === 0)? 'pair' : 'impaire'; //détermine si paire ou impaire
+
         }
 
+        return $resultat;
     }
 
 }

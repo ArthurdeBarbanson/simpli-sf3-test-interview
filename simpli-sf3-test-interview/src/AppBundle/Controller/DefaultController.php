@@ -14,8 +14,7 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-        $this->getParameter('inputData');
-        $result =$this->get('inputDataService');
+        $result =$this->get('inputDataService')->somme();
 
 
         // replace this example code with whatever you need
