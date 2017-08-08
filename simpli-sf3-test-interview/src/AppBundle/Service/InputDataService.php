@@ -21,7 +21,7 @@ class InputDataService{
 
         foreach ($inputData as $clef=>$data){
             if(count($data) < 2 ){
-                $resultat[$clef][0]= 'il faut des chiffre pour effectuer la somme';
+                $resultat[$clef][0]= 'il faut 2 chiffres pour effectuer la somme';
 
             }else{
                 $resultat[$clef][2]=$data[0]+$data[1]; //calcule la somme
