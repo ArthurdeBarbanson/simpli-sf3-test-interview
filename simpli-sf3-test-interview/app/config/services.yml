@@ -1,7 +1,7 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
-#    parameter_name: ''
+#    inputData:
 
 services:
     # default configuration for services in *this* file
@@ -30,5 +30,5 @@ services:
         tags: ['controller.service_arguments']
 
     # add more services, or override services that need manual wiring
-    AppBundle\Service\inputDataService:
-        arguments: ['%inputData%']
+    AppBundle\Service\InputDataService:
+        public: true

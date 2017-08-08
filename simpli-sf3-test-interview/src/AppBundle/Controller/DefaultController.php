@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Service\InputDataService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,14 +14,12 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $inputDataService = $this->get(InputDataService::class);
+        $result=$inputDataService->somme($this->getParameter('inputData'));
 
-        $result =$this->get('inputDataService')->somme();
-
-
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig',
-            compact('result')
-        );
+        return $this->render('default/index.html.twig',[
+            'result' => $result
+        ]);
     }
 
 }

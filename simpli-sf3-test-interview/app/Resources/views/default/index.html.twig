@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Our super table</h1>
 
-        <table class="table table-hover">
+        <table class="table table-bordered table-hover">
             <thead>
             <tr>
                 <th>item 1</th>
@@ -14,9 +14,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td></td>
-            </tr>
+
+            {% for row in result %}
+                <tr>
+                    {% for data in row %}
+                        <td>{{ data }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
             </tbody>
         </table>
     </div>
@@ -25,4 +31,6 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+
 {% endblock %}
